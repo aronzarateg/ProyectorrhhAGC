@@ -17,6 +17,7 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+         setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**
@@ -128,7 +129,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jmenitemRegionActionPerformed
 
     private void jmenItemDistritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmenItemDistritoActionPerformed
-         RegionForm u = new RegionForm ();
+         DistritoForm u = new DistritoForm ();
         jDesktopPane1.add(u);
         u.show();
     }//GEN-LAST:event_jmenItemDistritoActionPerformed

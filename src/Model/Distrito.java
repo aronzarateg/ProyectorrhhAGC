@@ -6,6 +6,8 @@
 
 package Model;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -16,6 +18,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -32,6 +35,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Distrito.findByNombreDistrito", query = "SELECT d FROM Distrito d WHERE d.nombreDistrito = :nombreDistrito"),
     @NamedQuery(name = "Distrito.findByCodigoPostal", query = "SELECT d FROM Distrito d WHERE d.codigoPostal = :codigoPostal")})
 public class Distrito implements Serializable {
+    @Transient
+    private PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -63,7 +68,9 @@ public class Distrito implements Serializable {
     }
 
     public void setIdDISTRITO(Integer idDISTRITO) {
+        Integer oldIdDISTRITO = this.idDISTRITO;
         this.idDISTRITO = idDISTRITO;
+        changeSupport.firePropertyChange("idDISTRITO", oldIdDISTRITO, idDISTRITO);
     }
 
     public int getIdPROVINCIA() {
@@ -71,7 +78,9 @@ public class Distrito implements Serializable {
     }
 
     public void setIdPROVINCIA(int idPROVINCIA) {
+        int oldIdPROVINCIA = this.idPROVINCIA;
         this.idPROVINCIA = idPROVINCIA;
+        changeSupport.firePropertyChange("idPROVINCIA", oldIdPROVINCIA, idPROVINCIA);
     }
 
     public String getNombreDistrito() {
@@ -79,7 +88,9 @@ public class Distrito implements Serializable {
     }
 
     public void setNombreDistrito(String nombreDistrito) {
+        String oldNombreDistrito = this.nombreDistrito;
         this.nombreDistrito = nombreDistrito;
+        changeSupport.firePropertyChange("nombreDistrito", oldNombreDistrito, nombreDistrito);
     }
 
     public String getCodigoPostal() {
@@ -87,7 +98,9 @@ public class Distrito implements Serializable {
     }
 
     public void setCodigoPostal(String codigoPostal) {
+        String oldCodigoPostal = this.codigoPostal;
         this.codigoPostal = codigoPostal;
+        changeSupport.firePropertyChange("codigoPostal", oldCodigoPostal, codigoPostal);
     }
 
     @Override
@@ -113,6 +126,14 @@ public class Distrito implements Serializable {
     @Override
     public String toString() {
         return "Model.Distrito[ idDISTRITO=" + idDISTRITO + " ]";
+    }
+
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        changeSupport.addPropertyChangeListener(listener);
+    }
+
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+        changeSupport.removePropertyChangeListener(listener);
     }
     
 }
