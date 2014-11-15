@@ -17,6 +17,7 @@
     <class>Model.Provincia</class>
     <class>Model.Region</class>
     <class>Model.Distrito</class>
+    <class>Model.Perfil</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/proyectagcrrhh?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
