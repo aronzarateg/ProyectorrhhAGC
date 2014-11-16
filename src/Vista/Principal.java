@@ -39,6 +39,7 @@ public class Principal extends javax.swing.JFrame {
         jmenitemProvincia = new javax.swing.JMenuItem();
         jmenItemDistrito = new javax.swing.JMenuItem();
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -103,6 +104,14 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu3.add(jCheckBoxMenuItem1);
 
+        jMenuItem3.setText("Accesos");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem3);
+
         jMenu2.add(jMenu3);
 
         jMenuItem1.setText("jMenuItem1");
@@ -154,6 +163,12 @@ public class Principal extends javax.swing.JFrame {
         u.show();
     }//GEN-LAST:event_jCheckBoxMenuItem1ActionPerformed
 
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        AccesosForm u = new AccesosForm ();
+        jDesktopPane1.add(u);
+        u.show();        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -198,6 +213,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jmenItemDistrito;
     private javax.swing.JMenuItem jmenitemProvincia;
     private javax.swing.JMenuItem jmenitemRegion;
